@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 {% extends 'blog-base.html' %}
 {% load static %}
 {% block title %}
@@ -5,14 +6,27 @@
 {% endblock %}
 {% block content %}
 
+<section class="mb-30px">
+  <div class="container">
+    <div class="hero-banner">
+      <div class="hero-banner__content">
+        <h3>Tours &amp; Travels</h3>
+        <h1>Amazing Places on earth</h1>
+        <h4>December 12, 2018</h4>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="blog-post-area section-margin">
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
         <div class="main_blog_details">
           {% if post.image_url %}
-          <img class="img-fluid" src="{{ post.image_url }}" alt="Тут должна быть картинка"> {% else %}
-          <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="Тут должна быть картинка"> {% endif %}
+            <img class="img-fluid" src="{{ post.image_url }}" alt="Тут должна быть картинка">
+          {% else %}
+            <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="Тут должна быть картинка">
+          {% endif %}
           <h4>{{ post.title }}</h4>
           <div class="user_details">
             <div class="mt-sm-0 mt-3">
@@ -45,11 +59,9 @@
             <div class="single-comment justify-content-between d-flex">
               <div class="user justify-content-between d-flex">
                 <div class="desc">
-                  <h5><a href="#">{{comment.author}}</a></h5>
+                  <h5> <a href="#">{{comment.author}}</a> </h5>
                   <p class="date">{{comment.published_at}} </p>
-                  <p class="comment">
-                    {{comment.text}}
-                  </p>
+                  <p class="comment">{{comment.text}} </p>
                 </div>
               </div>
               <div class="reply-btn">
